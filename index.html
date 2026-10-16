@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr" class="dark" data-theme="dark" data-theme-mode="system">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FONA Digital — Medical Liquid Glass</title>
+    <meta name="description" content="Application médicale avancée pour la gestion clinique, consultations, maternité, laboratoire, imagerie, caisse et synchronisation sécurisée FONA Digital." />
+    <meta property="og:title" content="FONA Digital — Medical Liquid Glass" />
+    <meta property="og:description" content="Application médicale avancée pour la gestion clinique, consultations, maternité, laboratoire, imagerie, caisse et synchronisation sécurisée FONA Digital." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <link rel="apple-touch-icon" href="/favicon.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Immediate flash-prevention script to apply theme before DOM paint -->
+    <script>
+      (function() {
+        try {
+          var savedMode = localStorage.getItem('fona_theme_mode') || 'system';
+          var resolved = savedMode;
+          if (savedMode === 'system') {
+            resolved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', resolved);
+          document.documentElement.setAttribute('data-theme-mode', savedMode);
+          document.documentElement.classList.remove('light', 'dark');
+          document.documentElement.classList.add(resolved);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-[var(--background,#071A33)] text-[var(--text-primary,#F5F9FF)] font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

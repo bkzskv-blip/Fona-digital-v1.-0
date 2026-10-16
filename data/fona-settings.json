@@ -1,0 +1,93 @@
+{
+  "generalBrand": {
+    "organizationName": "Cabinet Médical FONA",
+    "shortName": "CM FONA",
+    "slogan": "Zéro Souci, Soins de Qualité, Kapital Vie",
+    "clinicAddress": "Sirakoro Méguétana, Bamako-Mali",
+    "clinicPhone": "+223 66 73 05 16 / +223 69 64 26 46",
+    "clinicEmail": "contact@cmfona.ml",
+    "emergencyPhone": "+223 66 73 05 16",
+    "directorName": "Dr. Armand Koné",
+    "activePrimaryChoice": "secondary_design",
+    "primaryLogo": "/fona_logo_principal.jpg",
+    "secondaryLogo": "/fona_logo_officiel.jpg",
+    "iconLogo": "/favicon.jpg",
+    "primaryColor": "#4F7DF3",
+    "secondaryColor": "#1261A0",
+    "cyanColor": "#55D9FF",
+    "goldColor": "#D9B45B"
+  },
+  "appearanceTheme": {
+    "defaultCabinetTheme": "system",
+    "liquidGlassIntensity": "balanced",
+    "animationMode": "full",
+    "density": "comfortable",
+    "contrastMode": "standard"
+  },
+  "regional": {
+    "country": "ML",
+    "locale": "fr-ML",
+    "language": "fr",
+    "currency": "XOF",
+    "currencyDisplay": "FCFA",
+    "timezone": "Africa/Bamako",
+    "dateFormat": "dd/MM/yyyy",
+    "timeFormat": "24h",
+    "weekStartsOn": "monday",
+    "calendar": "gregory",
+    "phoneCountryCode": "+223",
+    "numberSeparator": "space"
+  },
+  "documentsNumbering": {
+    "showOfficialLogo": true,
+    "showInstitutionHeader": true,
+    "showWatermark": true,
+    "defaultPaperFormat": "A4",
+    "includePractitionerSignature": true,
+    "officialMention": "Cabinet Médical FONA — Sirakoro Méguétana, Bamako-Mali — Tél : +223 66 73 05 16 / +223 69 64 26 46",
+    "footerLegalText": "Document médical confidentiel délivré sous la responsabilité du praticien signataire.",
+    "patientIdPrefix": "PAT-2026-",
+    "consultationIdPrefix": "CONS-2026-",
+    "visitIdPrefix": "VIS-2026-",
+    "invoiceIdPrefix": "FAC-2026-",
+    "receiptIdPrefix": "REC-2026-",
+    "labIdPrefix": "LAB-2026-",
+    "imagingIdPrefix": "IMG-2026-",
+    "nextPatientSeq": 15,
+    "nextConsultationSeq": 28,
+    "nextInvoiceSeq": 42
+  },
+  "securitySessions": {
+    "sessionTimeoutMinutes": 30,
+    "maxFailedAttempts": 5,
+    "passwordMinLength": 10,
+    "requireSpecialChar": true,
+    "requireNumbers": true,
+    "twoFactorAuthEnabled": false,
+    "ipWhitelistEnabled": true,
+    "auditLogRetentionDays": 365,
+    "enforceLockOnIdle": true,
+    "idleWarningMinutes": 5
+  },
+  "backupsMaintenance": {
+    "autoBackupEnabled": true,
+    "backupFrequency": "daily",
+    "lastBackupAt": "2026-10-09T03:00:00Z",
+    "rpoObjectiveHours": 1,
+    "rtoObjectiveHours": 4,
+    "retentionDays": 30,
+    "backupStorageLocation": "secure_local_vault",
+    "compressionEnabled": true
+  },
+  "technicalConfig": {
+    "serverEnvironment": "production",
+    "apiEndpoint": "/api",
+    "logLevel": "info",
+    "degradedOfflineAllowed": true,
+    "requireConfirmationForCritical": true,
+    "syncIntervalSeconds": 60,
+    "maintenanceMode": false
+  },
+  "updatedAt": "2026-10-09T09:00:00Z",
+  "updatedBy": "Dr. Armand Koné (ADMIN)"
+}

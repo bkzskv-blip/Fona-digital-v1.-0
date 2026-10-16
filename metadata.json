@@ -1,0 +1,8 @@
+{
+  "name": "FONA Digital version finale",
+  "description": "Application médicale avancée pour la gestion clinique, consultations, maternité, laboratoire, imagerie, caisse et synchronisation multi-sites.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,635 @@
+@import "tailwindcss";
+@import "./styles/fonaMotion.css";
+
+@layer base {
+  :root {
+    --fona-navy: #071A33;
+    --fona-navy-deep: #030d1a;
+    --fona-blue: #1261A0;
+    --fona-sky: #55B9E8;
+    --fona-primary: #4F7DF3;
+    --fona-cyan: #55D9FF;
+    --fona-teal: #20B8A6;
+    --fona-violet: #8B7CFF;
+    --fona-gold: #D9B45B;
+    --fona-gold-light: #F2D27E;
+
+    /* Rayons de courbure organiques */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 26px;
+    --radius-card: 22px;
+    --radius-button: 14px;
+
+    /* Optique Liquid Glass 2.0 */
+    --glass-blur: 24px;
+    --glass-saturation: 160%;
+    --transition-theme: 220ms;
+    --transition-fast: 150ms;
+    --transition-normal: 220ms;
+    --transition-slow: 350ms;
+  }
+
+  /* ========================================================
+     MODE CLAIR (LIGHT MODE) — FONA Liquid Glass 2.0
+     Priorité absolue à la lisibilité clinique et au contraste WCAG
+     ======================================================== */
+  html[data-theme="light"],
+  :root[data-theme="light"],
+  .light {
+    --background: #F4F8FC;
+    --surface: rgba(255, 255, 255, 0.78);
+    --surface-solid: #FFFFFF;
+    --surface-card: rgba(255, 255, 255, 0.88);
+    --surface-subtle: #EEF4FA;
+    --surface-active: rgba(18, 97, 160, 0.08);
+    --surface-elevated: #FFFFFF;
+
+    --text-primary: #071A33;
+    --text-secondary: #42546A;
+    --text-muted: #617286;
+    --text-placeholder: #6B7C90;
+
+    --border: rgba(7, 26, 51, 0.12);
+    --border-subtle: rgba(7, 26, 51, 0.07);
+    --border-active: #1261A0;
+
+    --accent: #1261A0;
+    --accent-soft: rgba(18, 97, 160, 0.10);
+    --accent-cyan: #0284C7;
+    --accent-gold: #B48B2E;
+    --accent-teal: #0D9488;
+
+    /* Tokens Liquid Glass 2.0 (Light) */
+    --glass-background: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.85);
+    --glass-border-outer: rgba(7, 26, 51, 0.10);
+    --glass-highlight: rgba(255, 255, 255, 0.95);
+    --glass-specular: linear-gradient(120deg, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0) 35%);
+    --glass-shadow: 0 16px 40px rgba(7, 26, 51, 0.06), 0 2px 8px rgba(7, 26, 51, 0.03);
+    --glass-shadow-lg: 0 24px 60px rgba(7, 26, 51, 0.10), 0 4px 16px rgba(7, 26, 51, 0.04);
+    --glass-glow: 0 0 24px rgba(18, 97, 160, 0.10);
+    --glass-depth: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 10px 30px rgba(7, 26, 51, 0.05);
+
+    --glass-input-bg: #FFFFFF;
+    --glass-input-border: rgba(7, 26, 51, 0.18);
+    --glass-input-text: #071A33;
+    --glass-input-placeholder: #6B7C90;
+
+    --header-bg: rgba(255, 255, 255, 0.88);
+    --sidebar-bg: rgba(255, 255, 255, 0.88);
+    --sidebar-mobile-bg: #FFFFFF;
+  }
+
+  /* ========================================================
+     MODE SOMBRE (DARK MODE) — FONA Liquid Glass 2.0
+     Navy profond (#06111F, jamais noir pur), reflets froids et profondeur optique
+     ======================================================== */
+  html[data-theme="dark"],
+  :root[data-theme="dark"],
+  .dark {
+    --background: #06111F;
+    --surface: rgba(255, 255, 255, 0.07);
+    --surface-solid: #0B1A2B;
+    --surface-card: rgba(11, 26, 43, 0.72);
+    --surface-subtle: rgba(7, 20, 36, 0.55);
+    --surface-active: rgba(85, 217, 255, 0.14);
+    --surface-elevated: #0B1E34;
+
+    --text-primary: #F5F9FF;
+    --text-secondary: #9BAEC4;
+    --text-muted: #64748B;
+    --text-placeholder: #64748B;
+
+    --border: rgba(255, 255, 255, 0.12);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-active: rgba(85, 217, 255, 0.35);
+
+    --accent: #55D9FF;
+    --accent-soft: rgba(85, 217, 255, 0.12);
+    --accent-cyan: #55D9FF;
+    --accent-gold: #D9B45B;
+    --accent-teal: #20B8A6;
+
+    /* Tokens Liquid Glass 2.0 (Dark) */
+    --glass-background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --glass-border-outer: rgba(0, 0, 0, 0.40);
+    --glass-highlight: rgba(255, 255, 255, 0.22);
+    --glass-specular: linear-gradient(120deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 35%);
+    --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    --glass-shadow-lg: 0 25px 65px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    --glass-glow: 0 0 25px -5px rgba(85, 217, 255, 0.25);
+    --glass-depth: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.3), 0 20px 50px rgba(0, 0, 0, 0.45);
+
+    --glass-input-bg: rgba(7, 22, 40, 0.88);
+    --glass-input-border: rgba(255, 255, 255, 0.13);
+    --glass-input-text: #F8FAFC;
+    --glass-input-placeholder: #64748B;
+
+    --header-bg: rgba(6, 17, 31, 0.80);
+    --sidebar-bg: rgba(7, 22, 40, 0.82);
+    --sidebar-mobile-bg: rgba(6, 19, 36, 0.96);
+  }
+
+  /* Transition harmonieuse lors des bascules de thème */
+  html {
+    transition: background-color var(--transition-theme) ease, color var(--transition-theme) ease;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    transition: background-color var(--transition-theme) ease, color var(--transition-theme) ease;
+  }
+
+  /* Custom subtle scrollbar adaptatif */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  [data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+  }
+  [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: rgba(85, 217, 255, 0.3);
+  }
+  [data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: rgba(7, 26, 51, 0.20);
+    border-radius: 9999px;
+  }
+  [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: rgba(18, 97, 160, 0.40);
+  }
+}
+
+/* ========================================================
+   FONA LIQUID GLASS 2.0 — MULTI-LAYER & OPTICAL DEPTH
+   ======================================================== */
+
+/* NIVEAU 1 : Surfaces structurelles & Navigation flottante */
+.glass-level-1 {
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  transition: transform var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1),
+              background var(--transition-normal) ease,
+              border-color var(--transition-normal) ease,
+              box-shadow var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .glass-level-1 {
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+[data-theme="light"] .glass-level-1 {
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border-outer);
+  box-shadow: var(--glass-shadow);
+}
+
+/* NIVEAU 2 : Cartes & Panneaux (Verre multicouche + Reflet spéculaire) */
+.glass-surface,
+.glass-level-2 {
+  position: relative;
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  border-radius: var(--radius-card);
+  transition: transform var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1),
+              background var(--transition-normal) ease,
+              border-color var(--transition-normal) ease,
+              box-shadow var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+/* Couche 1 Dark : Dégradé translucide profond + Biseau interne double */
+[data-theme="dark"] .glass-surface,
+[data-theme="dark"] .glass-level-2 {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 36, 62, 0.76) 0%,
+    rgba(9, 22, 38, 0.82) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.30);
+  color: var(--text-primary);
+}
+
+/* Couche 1 Light : Verre lumineux pur + Contraste élevé */
+[data-theme="light"] .glass-surface,
+[data-theme="light"] .glass-level-2 {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(248, 251, 255, 0.88) 100%
+  );
+  border: 1px solid rgba(7, 26, 51, 0.12);
+  box-shadow:
+    0 16px 40px rgba(7, 26, 51, 0.05),
+    0 2px 6px rgba(7, 26, 51, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  color: #071A33;
+}
+
+/* Couche 2 : Reflet spéculaire 120deg (Matière réelle, non plastique) */
+.glass-surface::before,
+.glass-level-2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity var(--transition-normal) ease;
+}
+
+[data-theme="dark"] .glass-surface::before,
+[data-theme="dark"] .glass-level-2::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.04) 22%,
+    transparent 45%
+  );
+  opacity: 0.85;
+}
+
+[data-theme="light"] .glass-surface::before,
+[data-theme="light"] .glass-level-2::before {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.20) 25%,
+    transparent 50%
+  );
+  opacity: 0.9;
+}
+
+/* NIVEAU 3 : Modales & Menus flottants (Élévation majeure & Surface opaque protectrice) */
+.glass-level-3 {
+  position: relative;
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+[data-theme="dark"] .glass-level-3 {
+  background: rgba(9, 24, 42, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.65),
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+}
+
+[data-theme="light"] .glass-level-3 {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(7, 26, 51, 0.14);
+  box-shadow:
+    0 25px 70px rgba(7, 26, 51, 0.16),
+    0 6px 20px rgba(7, 26, 51, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  color: #071A33;
+}
+
+/* NIVEAU 4 : Éléments actifs, sélections & pillules */
+.glass-surface-active,
+.glass-level-4 {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: all var(--transition-fast) ease;
+}
+
+[data-theme="dark"] .glass-surface-active,
+[data-theme="dark"] .glass-level-4 {
+  background: rgba(85, 217, 255, 0.12);
+  border: 1px solid rgba(85, 217, 255, 0.38);
+  box-shadow:
+    0 0 20px rgba(85, 217, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: #F8FAFC;
+}
+
+[data-theme="light"] .glass-surface-active,
+[data-theme="light"] .glass-level-4 {
+  background: rgba(18, 97, 160, 0.09);
+  border: 1px solid rgba(18, 97, 160, 0.36);
+  box-shadow:
+    0 4px 16px rgba(18, 97, 160, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #071A33;
+}
+
+/* NAVIGATION LIQUID GLASS 2.0 (Îlot flottant & Élément actif avec aura) */
+.glass-floating-island {
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .glass-floating-island {
+  background: rgba(8, 22, 40, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.50),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+[data-theme="light"] .glass-floating-island {
+  background: rgba(255, 255, 255, 0.90);
+  border: 1px solid rgba(7, 26, 51, 0.11);
+  box-shadow:
+    0 16px 45px rgba(7, 26, 51, 0.07),
+    0 2px 8px rgba(7, 26, 51, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* Élément de navigation actif avec aura lumineuse & icône accentuée */
+.glass-nav-active {
+  position: relative;
+  transition: all var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .glass-nav-active {
+  background: linear-gradient(
+    135deg,
+    rgba(85, 217, 255, 0.18) 0%,
+    rgba(18, 97, 160, 0.14) 100%
+  );
+  border: 1px solid rgba(85, 217, 255, 0.40);
+  box-shadow:
+    0 0 20px rgba(85, 217, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .glass-nav-active {
+  background: linear-gradient(
+    135deg,
+    rgba(18, 97, 160, 0.12) 0%,
+    rgba(85, 217, 255, 0.08) 100%
+  );
+  border: 1px solid rgba(18, 97, 160, 0.35);
+  box-shadow:
+    0 4px 18px rgba(18, 97, 160, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  color: #071A33;
+}
+
+/* BOUTONS PHYSIQUES LIQUID GLASS (Micro-interactions tactiles) */
+.glass-btn-physics {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              background 180ms ease,
+              border-color 180ms ease,
+              box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.glass-btn-physics:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+  filter: brightness(1.05);
+}
+
+.glass-btn-physics:active:not(:disabled) {
+  transform: translateY(1px) scale(0.985);
+  filter: brightness(0.97);
+}
+
+/* Tables Styling adaptatif (High Contrast Medical Grade) */
+[data-theme="light"] table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+[data-theme="light"] table th {
+  color: #071A33;
+  background-color: #E6EDF5;
+  border-bottom: 2px solid rgba(7, 26, 51, 0.18);
+  font-weight: 800;
+}
+
+[data-theme="light"] table td {
+  color: #071A33;
+  border-bottom: 1px solid rgba(7, 26, 51, 0.10);
+  background-color: #FFFFFF;
+}
+
+[data-theme="light"] table tr:hover td {
+  background-color: #F1F6FC;
+}
+
+/* Form Controls adaptatifs (High Contrast Inputs) */
+.glass-control-input {
+  background-color: var(--glass-input-bg);
+  border-color: var(--glass-input-border);
+  color: var(--glass-input-text);
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder,
+.glass-control-input::placeholder {
+  color: #6B7C90 !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] select:focus,
+[data-theme="light"] textarea:focus {
+  border-color: #1261A0 !important;
+  box-shadow: 0 0 0 3px rgba(18, 97, 160, 0.20) !important;
+  background-color: #FFFFFF !important;
+}
+
+/* High Contrast Status Badges for Light Mode */
+[data-theme="light"] .badge-success,
+[data-theme="light"] [class*="bg-emerald-500/"],
+[data-theme="light"] [class*="bg-green-500/"] {
+  color: #065F46 !important;
+}
+
+[data-theme="light"] .badge-warning,
+[data-theme="light"] [class*="bg-amber-500/"],
+[data-theme="light"] [class*="bg-yellow-500/"] {
+  color: #92400E !important;
+}
+
+[data-theme="light"] .badge-danger,
+[data-theme="light"] [class*="bg-rose-500/"],
+[data-theme="light"] [class*="bg-red-500/"] {
+  color: #991B1B !important;
+}
+
+[data-theme="light"] [class*="bg-cyan-500/"],
+[data-theme="light"] [class*="bg-blue-500/"] {
+  color: #073B66 !important;
+}
+
+/* High Contrast Button Tweaks for Light Mode */
+[data-theme="light"] .glass-btn-secondary {
+  background-color: #FFFFFF !important;
+  color: #071A33 !important;
+  border: 1px solid rgba(7, 26, 51, 0.20) !important;
+  box-shadow: 0 1px 3px rgba(7, 26, 51, 0.08) !important;
+}
+[data-theme="light"] .glass-btn-secondary:hover {
+  background-color: #F1F5F9 !important;
+  border-color: rgba(7, 26, 51, 0.32) !important;
+}
+
+[data-theme="light"] .glass-btn-subtle {
+  background-color: rgba(7, 26, 51, 0.05) !important;
+  color: #071A33 !important;
+  border: 1px solid rgba(7, 26, 51, 0.14) !important;
+}
+[data-theme="light"] .glass-btn-subtle:hover {
+  background-color: rgba(7, 26, 51, 0.10) !important;
+}
+
+/* ========================================================
+   LIGHT MODE CONTRAST & READABILITY OVERRIDES
+   Ensures zero illegible text or inverted elements in light mode
+   ======================================================== */
+[data-theme="light"] .glass-surface h1,
+[data-theme="light"] .glass-surface h2,
+[data-theme="light"] .glass-surface h3,
+[data-theme="light"] .glass-surface h4,
+[data-theme="light"] .glass-surface h5,
+[data-theme="light"] .glass-surface-subtle h1,
+[data-theme="light"] .glass-surface-subtle h2,
+[data-theme="light"] .glass-surface-subtle h3,
+[data-theme="light"] .glass-surface-subtle h4 {
+  color: #071A33;
+}
+
+[data-theme="light"] .glass-surface .text-white:not(button *):not([class*="bg-"]):not(.keep-white),
+[data-theme="light"] .glass-surface-subtle .text-white:not(button *):not([class*="bg-"]):not(.keep-white) {
+  color: #071A33;
+}
+
+[data-theme="light"] select.bg-\[\#081a33\],
+[data-theme="light"] .bg-\[\#081a33\] {
+  background-color: #FFFFFF !important;
+  color: #071A33 !important;
+  border-color: rgba(7, 26, 51, 0.20) !important;
+}
+
+[data-theme="light"] .bg-\[\#051426\] {
+  background-color: #E2E8F0 !important;
+  border-color: rgba(7, 26, 51, 0.14) !important;
+  color: #071A33 !important;
+}
+
+[data-theme="light"] .bg-\[\#030d1a\] {
+  background-color: #F1F5F9 !important;
+  color: #071A33 !important;
+  border-color: rgba(7, 26, 51, 0.14) !important;
+}
+
+[data-theme="light"] .bg-\[\#07172b\],
+[data-theme="light"] .bg-\[\#091e38\]\/95,
+[data-theme="light"] .bg-\[\#0a1f38\] {
+  background-color: #FFFFFF !important;
+  color: #071A33 !important;
+  border-color: rgba(7, 26, 51, 0.18) !important;
+}
+
+/* Ensure active tabs with blue/gold backgrounds maintain high contrast white/dark text */
+[data-theme="light"] .bg-\[\#4F7DF3\] {
+  background-color: #1261A0 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .bg-\[\#D9B45B\] {
+  background-color: #D9B45B !important;
+  color: #071A33 !important;
+}
+
+/* Avatar subtle breathing & idle animations */
+@keyframes avatarBreathe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(85, 217, 255, 0);
+  }
+  50% {
+    transform: scale(1.028);
+    box-shadow: 0 0 16px 2px rgba(85, 217, 255, 0.22);
+  }
+}
+
+.animate-avatar-breathe {
+  animation: avatarBreathe 4.5s ease-in-out infinite;
+}
+
+@keyframes softGlowPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-soft-glow {
+  animation: softGlowPulse 3s ease-in-out infinite;
+}
+
+/* Animation level controls from settings */
+html[data-animation="reduced"] * {
+  animation-duration: 0.15s !important;
+  transition-duration: 0.12s !important;
+}
+
+html[data-animation="disabled"] * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  .glass-surface,
+  .glass-surface-subtle,
+  .glass-surface-active,
+  .glass-interactive,
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles for Medical Prescriptions, Lab Reports, Imaging, Receipts */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .glass-surface, .glass-surface-subtle, .glass-surface-active {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    color: #0f172a !important;
+  }
+}
